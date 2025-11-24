@@ -65,7 +65,7 @@ fun InventoryScreen(
                                 newStock = ""
                             }
                         },
-                        colors = CardDefaults.cardColors(containerColor = PinkAccent.copy(alpha = 0.7f)),
+                        colors = ButtonDefaults.buttonColors(containerColor = PinkAccent.copy(alpha = 0.7f)),
                         shape = RoundedCornerShape(12.dp),
                         modifier = Modifier.fillMaxWidth()
                     ) {

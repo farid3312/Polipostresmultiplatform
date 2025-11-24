@@ -3,11 +3,11 @@ package com.example.polipostresmultiplatform
 import androidx.compose.runtime.*
 import com.example.polipostresmultiplatform.model.Dessert
 import com.example.polipostresmultiplatform.theme.PoliPostresTheme
-import com.example.polipostresmultiplatform.ui.auth.LoginScreen
-import com.example.polipostresmultiplatform.ui.auth.RegisterScreen
-import com.example.polipostresmultiplatform.ui.dashboard.MainScaffold
-import com.example.polipostresmultiplatform.ui.dashboard.TabScreen
-import com.example.polipostresmultiplatform.ui.info.CreditsScreen
+import com.example.polipostresmultiplatform.auth.LoginScreen
+import com.example.polipostresmultiplatform.auth.RegisterScreen
+import com.example.polipostresmultiplatform.dashboard.MainScaffold
+import com.example.polipostresmultiplatform.dashboard.TabScreen
+import com.example.polipostresmultiplatform.info.CreditsScreen
 
 enum class Screen { Login, Register, MainTabs, Credits }
 
