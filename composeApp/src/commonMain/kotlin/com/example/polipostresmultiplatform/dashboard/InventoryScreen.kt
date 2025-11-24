@@ -25,7 +25,7 @@ import com.example.polipostresmultiplatform.theme.WhiteText
 import com.example.polipostresmultiplatform.theme.GreyText
 import com.example.polipostresmultiplatform.ui.components.PoliTextField
 
-@Composable
+
 @Composable
 fun InventoryScreen(
     desserts: List<Dessert>,
