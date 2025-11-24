@@ -35,8 +35,8 @@ fun PoliTextField(
         onValueChange = onValueChange,
         label = { Text(label, color = GreyText) },
         modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(12.dp),
-        colors = OutlinedTextFieldDefaults.colors(
+        shape = RoundedCornerShape(10.dp),
+        colors = OutlinedTextFieldDefaults.colors(r
             focusedBorderColor = PinkAccent,
             unfocusedBorderColor = SurfaceColor,
             focusedContainerColor = Color.Transparent,
