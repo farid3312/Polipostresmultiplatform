@@ -31,23 +31,39 @@ fun MainScaffold(
     desserts: List<Dessert>,
     onAddDessert: (Dessert) -> Unit,
     onSellDessert: (String) -> Unit,
-    onDeleteDessert: (String) -> Unit
+    onDeleteDessert: (String) -> Unit,
+    onIncreaseStock: (String) -> Unit,
+    onSelectImage: () -> Unit
 ) {
     Scaffold(
         topBar = {
             Row(
-                modifier = Modifier.fillMaxWidth().padding(16.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 TextButton(onClick = onLogout) {
-                    Icon(Icons.AutoMirrored.Filled.ExitToApp, contentDescription = null, tint = WhiteText)
+                    Icon(
+                        Icons.AutoMirrored.Filled.ExitToApp,
+                        contentDescription = null,
+                        tint = WhiteText
+                    )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text("Salir", color = WhiteText)
                 }
-                Text("PoliPostres", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                Text(
+                    text = "PoliPostres",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 18.sp
+                )
                 IconButton(onClick = onCredits) {
-                    Icon(Icons.Outlined.Info, contentDescription = "Créditos", tint = WhiteText)
+                    Icon(
+                        Icons.Outlined.Info,
+                        contentDescription = "Créditos",
+                        tint = WhiteText
+                    )
                 }
             }
         },
@@ -58,30 +74,50 @@ fun MainScaffold(
                     onClick = { onTabSelected(TabScreen.Inventory) },
                     icon = { Icon(Icons.Default.List, contentDescription = null) },
                     label = { Text("Inventario") },
-                    colors = NavigationBarItemDefaults.colors(selectedIconColor = PinkAccent, indicatorColor = SurfaceColor)
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = PinkAccent,
+                        indicatorColor = SurfaceColor
+                    )
                 )
                 NavigationBarItem(
                     selected = currentTab == TabScreen.Sales,
                     onClick = { onTabSelected(TabScreen.Sales) },
                     icon = { Icon(Icons.Default.ShoppingCart, contentDescription = null) },
                     label = { Text("Vender") },
-                    colors = NavigationBarItemDefaults.colors(selectedIconColor = PinkAccent, indicatorColor = SurfaceColor)
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = PinkAccent,
+                        indicatorColor = SurfaceColor
+                    )
                 )
                 NavigationBarItem(
                     selected = currentTab == TabScreen.Metrics,
                     onClick = { onTabSelected(TabScreen.Metrics) },
                     icon = { Icon(Icons.Default.Equalizer, contentDescription = null) },
                     label = { Text("Métricas") },
-                    colors = NavigationBarItemDefaults.colors(selectedIconColor = PinkAccent, indicatorColor = SurfaceColor)
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = PinkAccent,
+                        indicatorColor = SurfaceColor
+                    )
                 )
             }
         }
     ) { padding ->
         Box(modifier = Modifier.padding(padding)) {
             when (currentTab) {
-                TabScreen.Inventory -> InventoryScreen(desserts, onAddDessert, onDeleteDessert)
-                TabScreen.Sales -> SalesScreen(desserts, onSellDessert)
-                TabScreen.Metrics -> MetricsScreen(desserts)
+                TabScreen.Inventory -> InventoryScreen(
+                    desserts = desserts,
+                    onAdd = onAddDessert,
+                    onDelete = onDeleteDessert,
+                    onIncreaseStock = onIncreaseStock,
+                    onSelectImage = onSelectImage
+                )
+                TabScreen.Sales -> SalesScreen(
+                    desserts = desserts,
+                    onSell = onSellDessert
+                )
+                TabScreen.Metrics -> MetricsScreen(
+                    desserts = desserts
+                )
             }
         }
     }
