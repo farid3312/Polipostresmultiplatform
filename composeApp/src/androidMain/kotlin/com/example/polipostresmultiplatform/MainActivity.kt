@@ -16,6 +16,7 @@ class MainActivity : ComponentActivity() {
         val dessertRepository = InMemoryDessertRepository()
         val userRepository = InMemoryUserRepository()
         val sessionRepository = InMemorySessionRepository()
+        //  Farid es un sapo
 
         setContent {
             App(
