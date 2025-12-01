@@ -10,5 +10,6 @@ data class Dessert(
     val stock: Int,
     val sold: Int = 0,
     val price: Double = 0.0,
+    val imageUri: String? = null,                // <- NUEVO
     val imagePlaceholder: ImageVector = Icons.Default.Cake
 )
